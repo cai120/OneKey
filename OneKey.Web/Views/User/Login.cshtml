@@ -1,0 +1,10 @@
+@using OneKey.Web.ViewModels.User
+
+@model LoginUserViewModel;
+
+<form asp-action="Login" asp-controller="User">
+    <input asp-for="Username" placeholder="Username" />
+    <input asp-for="Password" type="password" placeholder="Password" />
+    <button type="submit">Login</button>
+</form>
+

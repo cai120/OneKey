@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\OneKey.Shared\OneKey.Shared.csproj" />
+    <ProjectReference Include="..\OneKey.Entity\OneKey.Entity.csproj" />
+    <ProjectReference Include="..\OneKey.Repository\OneKey.Repository.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
