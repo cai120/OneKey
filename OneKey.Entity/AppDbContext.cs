@@ -12,7 +12,7 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     public AppDbContext(DbContextOptions options) : base(options)
     {
     }
-
+    public DbSet<Password> Passwords { get; set; }
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         foreach(var added in ChangeTracker.Entries<IBaseEntity>().Where(a => a.State == EntityState.Added))

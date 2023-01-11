@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
+    <ProjectReference Include="..\OneKey.Entity\OneKey.Entity.csproj" />
     <ProjectReference Include="..\OneKey.Shared\OneKey.Shared.csproj" />
     <ProjectReference Include="..\OneKey.Domain\OneKey.Domain.csproj" />
     <ProjectReference Include="..\OneKey.ServiceClient\OneKey.ServiceClient.csproj" />

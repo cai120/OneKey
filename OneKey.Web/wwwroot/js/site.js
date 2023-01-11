@@ -9,3 +9,7 @@ onekey.prototype.init = function(){
     console.log('jQuery inited');
 }
 
+onekey.prototype.passwordIndex(filterUrl)
+{
+
+}
