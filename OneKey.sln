@@ -3,29 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Shared", "OneKey.Shared\OneKey.Shared.csproj", "{D076F241-AFD3-4B92-8561-4D468FC84BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Shared", "OneKey.Shared\OneKey.Shared.csproj", "{D076F241-AFD3-4B92-8561-4D468FC84BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Entity", "OneKey.Entity\OneKey.Entity.csproj", "{2D2A3BBD-172E-4FC5-A67F-F137CE13E3E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Entity", "OneKey.Entity\OneKey.Entity.csproj", "{2D2A3BBD-172E-4FC5-A67F-F137CE13E3E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Domain", "OneKey.Domain\OneKey.Domain.csproj", "{542E5907-A262-40A4-B686-654F6E5C018C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Domain", "OneKey.Domain\OneKey.Domain.csproj", "{542E5907-A262-40A4-B686-654F6E5C018C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.ServiceClient", "OneKey.ServiceClient\OneKey.ServiceClient.csproj", "{A96661AA-AD40-4025-9979-2BDEF74AD17E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.ServiceClient", "OneKey.ServiceClient\OneKey.ServiceClient.csproj", "{A96661AA-AD40-4025-9979-2BDEF74AD17E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Repository", "OneKey.Repository\OneKey.Repository.csproj", "{39964985-7D89-433F-8C4E-8902CF95CCA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Repository", "OneKey.Repository\OneKey.Repository.csproj", "{39964985-7D89-433F-8C4E-8902CF95CCA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Service", "OneKey.Service\OneKey.Service.csproj", "{3A35071F-94B0-4B47-9DDF-3FDEFBCE4366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Service", "OneKey.Service\OneKey.Service.csproj", "{3A35071F-94B0-4B47-9DDF-3FDEFBCE4366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Web", "OneKey.Web\OneKey.Web.csproj", "{73D777CD-BA8F-4E39-8CE6-7CE564D87763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Web", "OneKey.Web\OneKey.Web.csproj", "{73D777CD-BA8F-4E39-8CE6-7CE564D87763}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKey.Api", "OneKey.Api\OneKey.Api.csproj", "{6B6BEBDA-6EB9-48E1-A145-98B3C583D898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneKey.Api", "OneKey.Api\OneKey.Api.csproj", "{6B6BEBDA-6EB9-48E1-A145-98B3C583D898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D076F241-AFD3-4B92-8561-4D468FC84BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -60,5 +57,11 @@ Global
 		{6B6BEBDA-6EB9-48E1-A145-98B3C583D898}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B6BEBDA-6EB9-48E1-A145-98B3C583D898}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B6BEBDA-6EB9-48E1-A145-98B3C583D898}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9025438D-07DB-49FB-98E6-72ED3FC97E84}
 	EndGlobalSection
 EndGlobal

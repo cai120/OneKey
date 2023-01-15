@@ -9,7 +9,21 @@ onekey.prototype.init = function(){
     console.log('jQuery inited');
 }
 
-onekey.prototype.passwordIndex(filterUrl)
+onekey.prototype.passwordIndex = function(filterUrl)
 {
+    debugger;
+    var table = $('#password').DataTable({
+        "ajax": {
+            "type": "GET",
+            "url": filterUrl,
+            success: function (result) {
+                //debugger;
+            }
+        },
+        "columns": [
+            { "data": "detailsFor" },
+            { "data": "website" }
+        ]
 
+    });
 }

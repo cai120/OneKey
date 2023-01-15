@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using OneKey.ServiceClient;
 using OneKey.Shared.Utilities;
 using OneKey.Web.ViewModels;
+using System.Text.Json;
 
 namespace OneKey.Web.Controllers
 {
@@ -21,8 +23,18 @@ namespace OneKey.Web.Controllers
         {
             var payload = await _payloadResolver.GetPayloadAsync();
             var allPasswords = await _passwordServiceClient.GetAllAsync(payload);
+            var viewModel = _mapper.Map<List<PasswordViewModel>>(allPasswords.Value);
+            return View(viewModel);
+        }
 
-            return View(_mapper.Map<PasswordViewModel>(allPasswords));
+        public async Task<IActionResult> Filter()
+        {
+            var payload = await _payloadResolver.GetPayloadAsync();
+            var allPasswords = _passwordServiceClient.GetAllAsync(payload);
+
+            var data = JsonConvert.SerializeObject(allPasswords);
+
+            return Json(data);
         }
     }
 }

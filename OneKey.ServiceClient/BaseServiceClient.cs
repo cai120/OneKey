@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OneKey.Shared.Utilities;
 using OneKey.Domain.Models;
+using OneKey.Domain;
 
 namespace OneKey.ServiceClient;
 
@@ -274,6 +275,8 @@ public class BaseServiceClient<TDto> : IBaseServiceClient<TDto> where TDto : Bas
         {
             if(typeof(TDto) == typeof(UserDTO))
                 return "User";
+            if (typeof(TDto) == typeof(PasswordDTO))
+                return "Password";
 
             return "";
         }

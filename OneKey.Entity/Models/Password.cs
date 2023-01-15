@@ -16,6 +16,9 @@ namespace OneKey.Entity.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
+        public string DetailsFor { get; set; }
+        public string? Website { get; set; }
+        public string? Description { get; set; }
         public string StoredPassword { get; set; }
     }
 }

@@ -11,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<AppDbContext>(
+//    options => options.UseSqlServer(
+//        builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers().AddNewtonsoftJson(o => 
@@ -27,6 +27,7 @@ builder.Services.AddScoped(typeof(ITokenResolver), typeof(TokenResolver));
 builder.Services.AddScoped(typeof(IPayloadResolver), typeof(PayloadResolver));
 builder.Services.AddScoped(typeof(IBaseServiceClient<>), typeof(BaseServiceClient<>));
 builder.Services.AddScoped(typeof(IUserServiceClient), typeof(UserServiceClient));
+builder.Services.AddScoped(typeof(IPasswordServiceClient), typeof(PasswordServiceClient));
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
