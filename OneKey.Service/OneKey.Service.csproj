@@ -1,6 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.4.0.43" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="20.4.0.43" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\OneKey.Shared\OneKey.Shared.csproj" />
     <ProjectReference Include="..\OneKey.Entity\OneKey.Entity.csproj" />
     <ProjectReference Include="..\OneKey.Repository\OneKey.Repository.csproj" />

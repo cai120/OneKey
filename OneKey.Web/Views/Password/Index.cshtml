@@ -1,4 +1,7 @@
-﻿<div class="container p-3">
+﻿@using OneKey.Web.ViewModels;
+@model List<PasswordViewModel>
+
+<div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
             <h2 class="text-primary">Product List</h2>
@@ -23,6 +26,17 @@
             </tr>
         </thead>
         <tbody>
+            @foreach(var password in Model)
+            {
+                <tr>
+                    <td>
+                        @password.DetailsFor
+                    </td>
+                    <td>
+                        @password.Website
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -27,12 +27,22 @@ namespace OneKey.Web.Controllers
             return View(viewModel);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Filter()
         {
             var payload = await _payloadResolver.GetPayloadAsync();
             var allPasswords = _passwordServiceClient.GetAllAsync(payload);
 
-            var data = JsonConvert.SerializeObject(allPasswords);
+            var data = JsonConvert.SerializeObject(allPasswords,
+                                        new JsonSerializerSettings()
+                                        {
+                                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                                        });
 
             return Json(data);
         }

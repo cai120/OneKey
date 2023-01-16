@@ -8,6 +8,8 @@
   <ItemGroup>
     <PackageReference Include="Automapper" Version="12.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="7.2.24" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.4.0.43" />
+    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="20.4.0.43" />
   </ItemGroup>
 
   <PropertyGroup>
