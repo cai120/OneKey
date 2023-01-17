@@ -1,3 +1,23 @@
-﻿<form>
-    <div class="form-group"></div>
+﻿@using OneKey.Web.ViewModels;
+@model PasswordViewModel
+<form method="post">
+    <div class="form-group">
+        <div class="row">
+            <label class="col-sm-3">Details for</label>
+            <input class="col-sm-9" asp-for="DetailsFor" />
+        </div>
+        <div class="row">
+            <label class="col-sm-3">Username</label>
+            <input class="col-sm-9" asp-for="UserName" />
+        </div>
+        <div class="row">
+            <label class="col-sm-3">Website</label>
+            <input class="col-sm-9" asp-for="Website" />
+        </div>
+        <div class="row">
+            <label class="col-sm-3">Password</label>
+            <input class="col-sm-9" type="password" asp-for="StoredPassword" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
 </form>

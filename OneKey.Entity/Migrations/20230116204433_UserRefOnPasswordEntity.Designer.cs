@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OneKey.Entity;
 
@@ -11,9 +12,11 @@ using OneKey.Entity;
 namespace OneKey.Entity.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230116204433_UserRefOnPasswordEntity")]
+    partial class UserRefOnPasswordEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,7 +201,7 @@ namespace OneKey.Entity.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Passwords", (string)null);
+                    b.ToTable("Passwords");
                 });
 
             modelBuilder.Entity("OneKey.Entity.Models.User", b =>

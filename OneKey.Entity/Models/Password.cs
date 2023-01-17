@@ -20,5 +20,6 @@ namespace OneKey.Entity.Models
         public string? Website { get; set; }
         public string? Description { get; set; }
         public string StoredPassword { get; set; }
+        public string UserReference { get; set; }
     }
 }
