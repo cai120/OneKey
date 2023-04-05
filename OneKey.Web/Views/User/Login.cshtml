@@ -2,9 +2,34 @@
 
 @model LoginUserViewModel;
 
-<form asp-action="Login" asp-controller="User">
-    <input asp-for="Username" placeholder="Username" />
-    <input asp-for="Password" type="password" placeholder="Password" />
-    <button type="submit">Login</button>
-</form>
+@{
+    Layout = "";
+}
 
+<div class="container">
+    <form asp-action="Login" asp-controller="User">
+        <h1 class="form_title">Log in to OneKey</h1>
+        @if (Model.Failed)
+        {
+            <div>
+                <a class="sign-in-error">@Model.ErrorMessage</a>
+            </div>
+        }
+        <div class="pb-5">
+            <input asp-for="Username" class="login-textbox" placeholder="Username" />
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="pb-5">
+            <input asp-for="Password" class="login-textbox" type="password" placeholder="Password" />
+            <div class="form__input-error-message"></div>
+        </div>
+        <button class="form_button" type="submit">Login</button>
+
+        <div class="signUp">
+            <a href='@Url.Action("Register","User")'>Haven't got an account? Sign up here!</a>
+        </div>
+    </form>
+</div>
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">

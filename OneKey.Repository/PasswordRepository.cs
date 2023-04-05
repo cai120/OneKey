@@ -36,7 +36,9 @@ namespace OneKey.Repository
             {
                 if (Includes == null || Includes.Count == 0)
                 {
-                    result.Value = await Table.ToListAsync();
+                    var entities = Table.AsQueryable();
+
+                    result.Value = await entities.Where(a => a.UserReference == userExtRef.Value).ToListAsync();
                 }
                 else
                 {

@@ -1,15 +1,44 @@
 @using OneKey.Web.ViewModels.User
 
 @model RegisterUserViewModel;
+@{
+    Layout = "";
+}
+
+<div class="container">
+
+    <form asp-action="Register" asp-controller="User">
+        <h1 class="form_title">Sign Up to OneKey</h1>
+
+        <div class="pb-5">
+            <input asp-for="Email" class="login-textbox" placeholder="Email" />
+        </div>
+        <div class="pb-5">
+            <input asp-for="FirstName" class="login-textbox" placeholder="FirstName" />
+        </div>
+        <div class="pb-5">
+            <input asp-for="LastName" class="login-textbox" placeholder="LastName" />
+        </div>
+        <div class="pb-5">
+            <input asp-for="Username" class="login-textbox" placeholder="Username" />
+        </div>
+        <div class="pb-5">
+            <input asp-for="Password" class="login-textbox" type="password" placeholder="Password" />
+        </div>
+        <div class="pb-5">
+            <input asp-for="ConfirmPassword" class="login-textbox" type="password" placeholder="Confirm Password" />
+        </div>
+        <div class="pb-5">
+            <button class="form_button" type="submit">Sign Up</button>
+        </div>
 
 
-<form asp-action="Register" asp-controller="User">
-    <input asp-for="Email" placeholder="Email" />
-    <input asp-for="FirstName" placeholder="FirstName" />
-    <input asp-for="LastName" placeholder="LastName" />
-    <input asp-for="Username" placeholder="Username" />
-    <input asp-for="Password" type="password" placeholder="Password" />
-    <input asp-for="ConfirmPassword" type="password" placeholder="Confirm Password" />
-    <button type="submit">Register</button>
-</form>
+        <div class="signUp">
+            <a href='@Url.Action("Login","User")'>Already got an account? Login here!</a>
+        </div>
+    </form>
+</div>
 
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">

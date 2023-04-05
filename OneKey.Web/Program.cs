@@ -39,7 +39,7 @@ builder.Services.AddAuthentication(o =>
 }).AddCookie(o =>
     {
         o.Cookie.Name = "OneKey.Cookie";
-        o.LoginPath = "/Account/Login";
+        o.LoginPath = "/User/Login";
     });
 
 builder.Services.AddSession();

@@ -72,6 +72,14 @@ public class UserController : BaseController
 
         var result = await _userServiceClient.LoginAsync(payload, userDTO);
 
+        if (!result.Success)
+        {
+            viewModel.Failed = true;
+            viewModel.ErrorMessage = result.Message;
+            
+            return View(viewModel);
+        }
+        
         var token = new JwtSecurityTokenHandler().ReadJwtToken(result.Value);
 
         var identity = new ClaimsPrincipal(new ClaimsIdentity(token.Claims, "OneKey Cookie"));

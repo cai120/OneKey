@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OneKey.Domain;
@@ -12,36 +13,67 @@ namespace OneKey.Web.Controllers
     public class PasswordController : BaseController
     {
         private readonly IPasswordServiceClient _passwordServiceClient;
+        private readonly IIdentityResolver _identityResolver;
 
         public PasswordController(IMapper mapper,
         ITokenResolver tokenResolver,
         IPayloadResolver payloadResolver,
-        IPasswordServiceClient passwordServiceClient) : base(mapper, tokenResolver, payloadResolver)
+        IPasswordServiceClient passwordServiceClient,
+        IIdentityResolver identityResolver) : base(mapper, tokenResolver, payloadResolver)
         {
             _passwordServiceClient = passwordServiceClient;
+            _identityResolver = identityResolver;
         }
+
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var payload = await _payloadResolver.GetPayloadAsync();
             var allPasswords = await _passwordServiceClient.GetAllAsync(payload);
             var viewModel = _mapper.Map<List<PasswordViewModel>>(allPasswords.Value);
+
+            var currentUser = await _identityResolver.GetCurrentAccountAsync();
+
+            if(currentUser.IsSignedIn)
+                ViewBag.IsSignedIn = true;
+
             return View(viewModel);
         }
 
+        [Authorize]
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Upsert(string? reference = "")
         {
-            return View();
+            var currentUser = await _identityResolver.GetCurrentAccountAsync();
+            if (currentUser.IsSignedIn)
+            {
+                var viewModel = new PasswordViewModel();
+                if (!string.IsNullOrWhiteSpace(reference))
+                {
+                    var payload = await _payloadResolver.GetPayloadAsync();
+                    viewModel = _mapper.Map<PasswordViewModel>(await _passwordServiceClient.GetSingleWhereAsync(payload, a => a.Reference == reference));
+                }
+                return View(viewModel);
+            }
+            return View("Index");
         }
-
+        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Create(PasswordViewModel viewModel)
+        public async Task<IActionResult> Upsert(PasswordViewModel viewModel)
         {
             var payload = await _payloadResolver.GetPayloadAsync();
 
             viewModel.StoredPassword = EncodePasswordToBase64(viewModel.StoredPassword);
 
-            var result = _passwordServiceClient.CreateAsync(payload, _mapper.Map<PasswordDTO>(viewModel));
+            if(string.IsNullOrWhiteSpace(viewModel.Reference))
+            {
+                var result = _passwordServiceClient.CreateAsync(payload, _mapper.Map<PasswordDTO>(viewModel));
+            }
+            else
+            {
+                var result = _passwordServiceClient.UpdateAsync(payload, _mapper.Map<PasswordDTO>(viewModel));
+            }
+
             return RedirectToAction("Index");
         }
 
@@ -66,6 +98,8 @@ namespace OneKey.Web.Controllers
             return result;
         }
 
+
+        [Authorize]
         public async Task<IActionResult> Filter()
         {
             var payload = await _payloadResolver.GetPayloadAsync();

@@ -9,4 +9,8 @@ public class LoginUserViewModel
 {
     public string Username { get; set; }
     public string Password { get; set; }
+
+    public bool Failed { get; set; } = false;
+    public string? ErrorMessage { get; set; }
+
 }

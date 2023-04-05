@@ -6,11 +6,16 @@
         <div class="col-6">
             <h2 class="text-primary">Product List</h2>
         </div>
-        <div class="col-6 text-end">
-            <a asp-controller="Password" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-plus"></i> &nbsp; Add Password
-            </a>
-        </div>
+        @{
+            if (ViewBag.IsSignedIn == true)
+            {
+                <div class="col-6 text-end">
+                    <a asp-controller="Password" asp-action="Upsert" class="btn btn-primary">
+                        <i class="bi bi-plus"></i> &nbsp; Add Password
+                    </a>
+                </div>
+            }
+        }
     </div>
     <br>
 
@@ -26,11 +31,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var password in Model)
+            @foreach (var password in Model)
             {
                 <tr>
                     <td class="text-white">
-                        @password.DetailsFor
+                        <a href="@Url.Action("Upsert","Password", new {reference = password.Reference})">
+                            @password.DetailsFor
+                        </a>
                     </td>
                     <td class="text-white">
                         @password.Website
@@ -40,9 +47,3 @@
         </tbody>
     </table>
 </div>
-
-@section scripts{
-    <script>
-        $.onekey.passwordIndex('@Url.Action("Filter")')
-    </script>
-}
