@@ -277,7 +277,6 @@ img.profile-pic {
 }
 
 .login-textbox {
-  padding: 5px !important;
   height: 30px;
   position: relative;
   left: 0;
@@ -371,4 +370,8 @@ img.profile-pic {
 
 .sign-in-error {
   color: red !important;
+}
+
+.textbox-wrapper {
+  padding-bottom: 10px;
 }

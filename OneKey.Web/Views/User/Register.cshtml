@@ -3,6 +3,7 @@
 @model RegisterUserViewModel;
 @{
     Layout = "";
+    ViewBag.Page = "Sign Up";
 }
 
 <div class="container">
@@ -10,25 +11,25 @@
     <form asp-action="Register" asp-controller="User">
         <h1 class="form_title">Sign Up to OneKey</h1>
 
-        <div class="pb-5">
+        <div class="textbox-wrapper">
             <input asp-for="Email" class="login-textbox" placeholder="Email" />
         </div>
-        <div class="pb-5">
-            <input asp-for="FirstName" class="login-textbox" placeholder="FirstName" />
+        <div class="textbox-wrapper">
+            <input asp-for="FirstName" class="login-textbox" placeholder="First Name" />
         </div>
-        <div class="pb-5">
-            <input asp-for="LastName" class="login-textbox" placeholder="LastName" />
+        <div class="textbox-wrapper">
+            <input asp-for="LastName" class="login-textbox" placeholder="Last Name" />
         </div>
-        <div class="pb-5">
+        <div class="textbox-wrapper">
             <input asp-for="Username" class="login-textbox" placeholder="Username" />
         </div>
-        <div class="pb-5">
+        <div class="textbox-wrapper">
             <input asp-for="Password" class="login-textbox" type="password" placeholder="Password" />
         </div>
-        <div class="pb-5">
+        <div class="textbox-wrapper">
             <input asp-for="ConfirmPassword" class="login-textbox" type="password" placeholder="Confirm Password" />
         </div>
-        <div class="pb-5">
+        <div class="textbox-wrapper">
             <button class="form_button" type="submit">Sign Up</button>
         </div>
 
