@@ -1,9 +1,11 @@
 ﻿@using OneKey.Web.ViewModels;
+@using Microsoft.Extensions.Localization
 @model PasswordViewModel
+@inject IStringLocalizer<PasswordViewModel> _stringLocalizer;
 <form method="post">
     <div class="card-box">
         <div class="col-sm-12">
-        <h1 class="text-dark">@Model.Title</h1>
+        <h1 class="text-dark">@_stringLocalizer[Model.Title]</h1>
             <div class="row">
                 <label class="col-sm-3 text-dark">Details for</label>
                 <input class="col-sm-9" asp-for="DetailsFor"/>
