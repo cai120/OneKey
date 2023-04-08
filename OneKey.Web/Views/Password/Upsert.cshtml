@@ -1,23 +1,26 @@
 ﻿@using OneKey.Web.ViewModels;
 @model PasswordViewModel
 <form method="post">
-    <div class="form-group">
-        <div class="row">
-            <label class="col-sm-3">Details for</label>
-            <input class="col-sm-9" asp-for="DetailsFor" />
-        </div>
-        <div class="row">
-            <label class="col-sm-3">Username</label>
-            <input class="col-sm-9" asp-for="UserName" />
-        </div>
-        <div class="row">
-            <label class="col-sm-3">Website</label>
-            <input class="col-sm-9" asp-for="Website" />
-        </div>
-        <div class="row">
-            <label class="col-sm-3">Password</label>
-            <input class="col-sm-9" type="password" asp-for="StoredPassword" />
+    <div class="card-box">
+        <div class="col-sm-12">
+        <h1 class="text-dark">@Model.Title</h1>
+            <div class="row">
+                <label class="col-sm-3 text-dark">Details for</label>
+                <input class="col-sm-9" asp-for="DetailsFor"/>
+            </div>
+            <div class="row">
+                <label class="col-sm-3 text-dark">Username</label>
+                <input class="col-sm-9" asp-for="UserName"/>
+            </div>
+            <div class="row">
+                <label class="col-sm-3 text-dark">Website</label>
+                <input class="col-sm-9" asp-for="Website"/>
+            </div>
+            <div class="row">
+                <label class="col-sm-3 text-dark">Password</label>
+                <input class="col-sm-9" type="password" asp-for="StoredPassword"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-upsert">Create</button>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
 </form>

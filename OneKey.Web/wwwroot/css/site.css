@@ -276,6 +276,25 @@ img.profile-pic {
   justify-content: center;
 }
 
+.card-box {
+  max-width: 700px;
+  margin: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  background: #ffffff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-height: 700px;
+  justify-content: center;
+}
+
 .login-textbox {
   height: 30px;
   position: relative;
@@ -374,4 +393,17 @@ img.profile-pic {
 
 .textbox-wrapper {
   padding-bottom: 10px;
+}
+
+.btn-upsert {
+  justify-content: end;
+  margin-top: 20px;
+}
+
+input[type=text] {
+  padding: 10px;
+}
+
+input[type=password] {
+  padding: 10px;
 }

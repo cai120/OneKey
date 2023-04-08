@@ -48,12 +48,14 @@ namespace OneKey.Web.Controllers
             if (currentUser.IsSignedIn)
             {
                 var viewModel = new PasswordViewModel();
+                viewModel.Title = "Create";
                 if (!string.IsNullOrWhiteSpace(reference))
                 {
                     var payload = await _payloadResolver.GetPayloadAsync();
                     viewModel = _mapper.Map<PasswordViewModel>(await _passwordServiceClient.GetSingleWhereAsync(payload, a => a.Reference == reference));
+                    viewModel.Title = "Edit";
                 }
-                return View(viewModel);
+               return View(viewModel);
             }
             return View("Index");
         }

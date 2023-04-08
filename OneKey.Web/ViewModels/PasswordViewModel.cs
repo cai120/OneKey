@@ -10,5 +10,6 @@ namespace OneKey.Web.ViewModels
         public string? Website { get; set; }
         public string? Description { get; set; }
         public string UserReference { get; set; }
+        public string Title { get; set; }
     }
 }
