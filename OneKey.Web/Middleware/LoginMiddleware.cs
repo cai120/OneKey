@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication;
+
 namespace OneKey.Web.Middleware;
 
 public class LoginMiddleware
@@ -11,12 +13,10 @@ public class LoginMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        var cultureQuery = context.Request.Query["culture"];
-        if (!string.IsNullOrWhiteSpace(cultureQuery))
+        if (!context.User.Identity.IsAuthenticated)
         {
+            await context.SignOutAsync();
         }
-
-        // Call the next delegate/middleware in the pipeline.
         await _next(context);
     }
 }
